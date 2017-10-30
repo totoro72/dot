@@ -35,7 +35,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kshenoy/vim-signature'
 Plugin 'pangloss/vim-javascript'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -57,6 +56,7 @@ let mapleader=","
 " ============ LEADER mappings ===============
 " fzf shortcuts
 nnoremap <LEADER>f :Files<CR>
+nnoremap <LEADER>h :History<CR>
 nnoremap <LEADER>l :Lines<CR>
 nnoremap <LEADER>bl :BLines<CR>
 nnoremap <LEADER>w :Windows<CR>
