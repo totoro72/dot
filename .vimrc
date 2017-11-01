@@ -1,8 +1,13 @@
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
 set nocompatible              " required
 filetype off                  " required
 set number
 set clipboard=unnamed
 set encoding=utf-8
+syntax enable
+
 filetype plugin indent on    " required
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -13,16 +18,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
 
-" au BufNewFile,BufRead *.js, *.html, *.css
-"      \ set tabstop=2 |
-"      \ set softtabstop=2 |
-"      \ set shiftwidth=2 |
-"      \ set expandtab |
-
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -48,10 +44,19 @@ Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
+" run pathogen
+execute pathogen#infect()
+
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " totoro settings
+" appearance settings
+set background=dark
+let python_highlight_all=1
+let g:solarized_termcolors=16
+colorscheme Monokai
+
 let mapleader=","
 " ============ LEADER mappings ===============
 " fzf shortcuts
@@ -80,11 +85,12 @@ nnoremap <C-L> <C-W>l
 " experimental
 nnoremap ; :
 
-" remap tab to escape
- 
 " escape stuff
 inoremap jk <ESC>
 inoremap sd <ESC>
+
+" remove trailing whitespace when save
+autocmd BufWritePre * %s/\s\+$//e
 
 " Enable folding
 set foldmethod=indent
@@ -101,9 +107,6 @@ let g:ale_sign_warning = '--'
 
 " Enable folding with the spacebar
 nnoremap <space> za
-
-let python_highlight_all=1
-syntax on
 
 autocmd VimEnter * silent !echo -ne "\033]1337;SetKeyLabel=F7=Flake8\a"
 autocmd VimEnter * silent !echo -ne "\033]1337;SetKeyLabel=F1=Help\a"
