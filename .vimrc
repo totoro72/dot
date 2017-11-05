@@ -87,7 +87,6 @@ nnoremap ; :
 
 " escape stuff
 inoremap jk <ESC>
-inoremap sd <ESC>
 
 " remove trailing whitespace when save
 autocmd BufWritePre * %s/\s\+$//e
