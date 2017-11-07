@@ -1,8 +1,8 @@
 " set the runtime path to include Vundle and initialize
+set shell=bash
 set rtp+=~/.vim/bundle/Vundle.vim
 
 set nocompatible              " required
-filetype off                  " required
 set number
 set clipboard=unnamed
 set encoding=utf-8
@@ -22,6 +22,16 @@ autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" Plug plugins
+call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+" Initialize plugin system
+call plug#end()
+
+" run pathogen
+execute pathogen#infect()
+
 call vundle#begin()
 " ===== Vundle Plugins ======
 Plugin 'gmarik/Vundle.vim'
@@ -37,15 +47,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " ===== END OF Vundle Plugins ======
 call vundle#end()            " required
 
-" Plug plugins
-call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-" Initialize plugin system
-call plug#end()
-
-" run pathogen
-execute pathogen#infect()
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -87,7 +88,6 @@ nnoremap ; :
 
 " escape stuff
 inoremap jk <ESC>
-inoremap sd <ESC>
 
 " remove trailing whitespace when save
 autocmd BufWritePre * %s/\s\+$//e
@@ -123,7 +123,6 @@ map <silent> <leader>debugger odebugger // eslint-disable-line<esc>
 set backspace=indent,eol,start
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " indicate this is the window to swap to - max swap
 function! MarkWindowSwap()
