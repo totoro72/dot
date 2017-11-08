@@ -44,6 +44,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdcommenter'
 " ===== END OF Vundle Plugins ======
 call vundle#end()            " required
 
@@ -72,7 +73,6 @@ nnoremap <LEADER>buf :Buffers<CR>
 nnoremap <LEADER>ag :Ag<CR>
 nnoremap <LEADER>rs :source ~/.vimrc<CR>
 " save stuff
-" TODO add white space stripping
 inoremap <LEADER>s <ESC>:update<CR>
 nnoremap <LEADER>s :update<CR>
 " ============ END OF LEADER mappings ===============
