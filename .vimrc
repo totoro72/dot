@@ -44,6 +44,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdcommenter'
 " ===== END OF Vundle Plugins ======
 call vundle#end()            " required
@@ -53,11 +54,12 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " totoro settings
-" appearance settings
+" colors
 set background=dark
+set termguicolors
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 let python_highlight_all=1
-let g:solarized_termcolors=16
-colorscheme Monokai
 
 let mapleader=","
 " ============ LEADER mappings ===============
