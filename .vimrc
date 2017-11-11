@@ -29,9 +29,6 @@ Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
-" run pathogen
-execute pathogen#infect()
-
 call vundle#begin()
 " ===== Vundle Plugins ======
 Plugin 'gmarik/Vundle.vim'
@@ -40,12 +37,12 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kshenoy/vim-signature'
 Plugin 'pangloss/vim-javascript'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
 " ===== END OF Vundle Plugins ======
 call vundle#end()            " required
 
